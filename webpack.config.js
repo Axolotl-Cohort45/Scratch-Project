@@ -3,7 +3,8 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   // mode: 'production',
-  mode: 'development',
+  // mode: 'development',
+  mode: process.env.NODE_ENV,
   entry: './src/index.js',
 
   output: {
@@ -25,6 +26,7 @@ module.exports = {
 
   plugins: [
     new HTMLWebpackPlugin({
+      title: 'Development',
       template: './src/index.html',
     }),
   ],

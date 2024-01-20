@@ -1,13 +1,24 @@
 import React from 'react';
-import Form from './Form';
-import Info from './ArtInfo';
+
 
 function App({ Component }) {
+  const headerStyle = {
+    textAlign: 'center',
+    backgroundColor: 'tan',
+    padding: "30px",
+    fontFamily: 'Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif'
+  }
+
+  const background = {
+    backgroundColor: "#e3ddd5",
+    minHeight: '100vh', // Set minimum height to 100% of the viewport height
+    display: 'flex',
+    flexDirection: 'column',
+  }
+
   return (
-    <div>
-      <h1 style={{ color: 'blue' }}>Met Museum Search</h1>
-      <Form />
-      <Info />
+    <div style={background}>
+      <h1 style={headerStyle}>Restaurant</h1>
     </div>
   );
 }
