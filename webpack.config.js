@@ -47,10 +47,10 @@ module.exports = {
         exclude: /node_modules/,
         use: ["style-loader", "css-loader"], //-> include sass-loader if using sass
       },
+      {
+        test: /\.(jpe?g|png|gif)$/i,
+        loader: "file-loader",
+      },
     ],
   },
 };
-
-//    "start": "webpack-dev-server --mode development --open --hot",
-//"build": "webpack --mode production"
-//"dev": "webpack-dev-server --mode development --open --hot"
