@@ -8,23 +8,6 @@ app.use(express.urlencoded({ extended: true }));
 
 console.log("hello world");
 
-// app.get('/api/art/:name', middleware.getArt, middleware.loop, (req, res) => {
-//   console.log('Data in res.locals.all:', res.locals);
-//   return res.status(200).json({ res: res.locals });
-// });
-
-// app.get('/api/art/:artist', artistMiddleware.getWorks, middleware.loop, (req, res) => {
-//   console.log('Data in res.locals.all:', res.locals);
-//   return res.status(200).json({ res: res.locals });
-// });
-
-// app.get('/api/test', middleware.getArt, (req, res) => {
-//   return res.status(200).send({ test: 'cool this worked' });
-// });
-
-// app.get('/api/test2', (req, res) => {
-//   return res.status(200).send({ test: 'cool this worked2' });
-// });
 
 app.get('/', (req, res) => {
   return res.status(200).sendFile(path.resolve(__dirname, '../src/index.html'));
