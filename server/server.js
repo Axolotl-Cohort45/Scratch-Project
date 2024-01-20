@@ -1,5 +1,5 @@
-const path = require("path");
-const express = require("express");
+const path = require('path');
+const express = require('express');
 
 const app = express();
 
@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json()); //-> confirmed
 app.use(express.urlencoded({ extended: true }));
 
-console.log("hello world");
+console.log('hello world');
 
 // app.get('/api/art/:name', middleware.getArt, middleware.loop, (req, res) => {
 //   console.log('Data in res.locals.all:', res.locals);
@@ -29,8 +29,8 @@ console.log("hello world");
 //   return res.status(200).send({ test: 'cool this worked2' });
 // });
 
-app.get("/", (req, res) => {
-  return res.status(200).sendFile(path.resolve(__dirname, "../src/index.html"));
+app.get('/', (req, res) => {
+  return res.status(200).sendFile(path.resolve(__dirname, '../src/index.html'));
 });
 
 // Global error handling middleware
