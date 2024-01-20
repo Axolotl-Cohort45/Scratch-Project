@@ -89,3 +89,37 @@ header .nav-links li {
 header .nav-links li:last-child {
   margin-right: 0;
 }
+
+.profile-container {
+  width: 20%;
+  height: 50%;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.content-container {
+  display: flex;
+}
+
+.footprints-page {
+  padding: 40px 0;
+}
+
+.right-container {
+  padding-left: 10px;
+  width: 85%;
+}
+
+.select-container {
+  margin-top: 20px;
+}
+
+.footprint-grid {
+  width: 90%;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+}

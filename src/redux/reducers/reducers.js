@@ -2,6 +2,7 @@ import * as types from "../actionTypes";
 
 const initialState = {
   wishList: [],
+  footprints: [],
 };
 
 const Reducers = (state = initialState, action) => {

@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { Header } from "./Header";
-import CreateFootPrints from "./myfootprints";
+import DisplayFootPrints from "./myfootprints";
 import SearchPage from "./search";
 import WishList from "./wishlist";
 import "./App.css";
@@ -12,7 +12,7 @@ function App() {
       <Header />
       <main>
         <Switch>
-          <Route exact path="/" component={CreateFootPrints} />
+          <Route exact path="/" component={DisplayFootPrints} />
           <Route exact path="/wishlist" component={WishList} />
           <Route exact path="/search-new" component={SearchPage} />
         </Switch>
