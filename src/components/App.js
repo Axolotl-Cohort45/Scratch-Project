@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { Header } from "./Header";
 import CreateFootPrints from "./myfootprints";
@@ -12,8 +12,8 @@ function App() {
       <Header />
       <main>
         <Switch>
-          <Route exact path="/" component={WishList} />
-          <Route exact path="/myfootprints" component={CreateFootPrints} />
+          <Route exact path="/" component={CreateFootPrints} />
+          <Route exact path="/wishlist" component={WishList} />
           <Route exact path="/search-new" component={SearchPage} />
         </Switch>
       </main>
