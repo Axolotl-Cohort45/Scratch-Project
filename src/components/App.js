@@ -5,6 +5,7 @@ import DisplayFootPrints from "./myfootprints";
 import SearchPage from "./search";
 import EditFootPrints from "./EditFootPrints";
 import WishList from "./wishlist";
+import BrewDetailsPage from "./brewDetails";
 import "./App.css";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/edit" component={EditFootPrints} />
           <Route exact path="/wishlist" component={WishList} />
           <Route exact path="/search-new" component={SearchPage} />
+          <Route exact path="/brew-details" component={BrewDetailsPage} />
         </Switch>
       </main>
     </div>
