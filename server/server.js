@@ -1,7 +1,5 @@
 const path = require("path");
 const express = require("express");
-const footprintsRouter = require("./routes/footprints");
-const searchRouter = require("./routes/search");
 
 const app = express();
 
@@ -10,8 +8,9 @@ app.use(express.urlencoded({ extended: true }));
 
 console.log("hello world");
 
-app.get("/", (req, res) => {
-  return res.status(200).sendFile(path.resolve(__dirname, "../src/index.html"));
+
+app.get('/', (req, res) => {
+  return res.status(200).sendFile(path.resolve(__dirname, '../src/index.html'));
 });
 
 app.use("/footprints", footprintsRouter);
