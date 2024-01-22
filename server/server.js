@@ -11,14 +11,13 @@ app.use(express.urlencoded({ extended: true }));
 
 console.log("hello world");
 
-
 app.get("/", (req, res) => {
   return res.status(200).sendFile(path.resolve(__dirname, "../src/index.html"));
 });
 
-app.use("/footprints", footprintsRouter);
-app.use("/search", searchRouter);
-app.use("/wishlist", wishlistRouter);
+app.use("/api/footprints", footprintsRouter);
+app.use("/api/search", searchRouter);
+app.use("/api/wishlist", wishlistRouter);
 
 // Global error handling middleware
 app.use((err, req, res, next) => {

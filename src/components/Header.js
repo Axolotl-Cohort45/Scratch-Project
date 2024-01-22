@@ -30,6 +30,12 @@ export const Header = () => {
                 Explore New
               </Link>
             </li>
+            {/* Remember to Remove After! */}
+            <li>
+              <Link to="/brew-details" className="btn btn-main">
+                Test Brewery Page Link
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
