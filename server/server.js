@@ -1,5 +1,8 @@
 const path = require("path");
 const express = require("express");
+const footprintsRouter = require("./routes/footprints");
+const searchRouter = require("./routes/search");
+const wishlistRouter = require("./routes/wishlist");
 
 const app = express();
 
@@ -8,16 +11,15 @@ app.use(express.urlencoded({ extended: true }));
 
 console.log("hello world");
 
-
-app.get('/', (req, res) => {
-  return res.status(200).sendFile(path.resolve(__dirname, '../src/index.html'));
+app.get("/", (req, res) => {
+  return res.status(200).sendFile(path.resolve(__dirname, "../src/index.html"));
 });
 
-app.use("/footprints", footprintsRouter);
-app.use("/search", searchRouter);
+app.use("/api/footprints", footprintsRouter);
+app.use("/api/search", searchRouter);
+app.use("/api/wishlist", wishlistRouter);
 
 // Global error handling middleware
-// How can we trigger this to run? - by passing something into next
 app.use((err, req, res, next) => {
   const defaultErr = {
     log: "Express error handler caught unknown middleware error",
