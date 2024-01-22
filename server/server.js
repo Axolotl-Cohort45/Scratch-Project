@@ -2,6 +2,7 @@ const path = require("path");
 const express = require("express");
 const footprintsRouter = require("./routes/footprints");
 const searchRouter = require("./routes/search");
+const wishlistRouter = require("./routes/wishlist");
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.get("/", (req, res) => {
 
 app.use("/footprints", footprintsRouter);
 app.use("/search", searchRouter);
+app.use("/wishlist", wishlistRouter);
 
 // Global error handling middleware
 app.use((err, req, res, next) => {

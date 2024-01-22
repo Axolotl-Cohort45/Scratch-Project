@@ -56,4 +56,44 @@ footprintsMiddleware.getCityId = async (req, res, next) => {
   }
 };
 
+
+footprintsMiddleware.addFootprint = async (req, res, next) => {
+    try {
+        const {
+            userId,
+            restaurant_name,
+            address,
+            city,
+            phone,
+            record_date,
+			user_rating,
+			comment
+        } = req.body
+
+        const footprint = await models.Footprint.create({
+            userId,
+            restaurant_name,
+            address,
+            city,
+            phone,
+			record_date,
+			user_rating,
+			comment
+        })
+
+        res.locals.footprint = footprint
+        return next()
+    }
+     
+    catch (err){
+        return next({
+            log: `Error in FootprintsMiddleware :${err}`,
+            message: {
+                err: `Error in FootprintsMiddleware :${err}`
+            },
+            status: 500
+        })
+    }
+}
+
 module.exports = footprintsMiddleware;
