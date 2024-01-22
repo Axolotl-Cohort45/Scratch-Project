@@ -8,11 +8,11 @@ export const Header = () => {
         <div className="inner-content">
           <div className="brand">
             <img
-              src={require("../img/cutlery.png").default}
-              width="50"
-              height="50"
+              src={require("../img/brewery-color.png").default}
+              width="70"
+              height="70"
             ></img>
-            <Link to="/">Restaurant-Buddy</Link>
+            <Link to="/">Brewery-Buddy</Link>
           </div>
           <ul className="nav-links">
             <li>
