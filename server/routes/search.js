@@ -1,11 +1,14 @@
-const { Router } = require("express");
-const express = require("express");
+const { Router } = require('express');
+const express = require('express');
 
 const router = express.Router();
 
+const footprintsMiddleware = require('../Middleware/footprintsMiddleware');
+
 // Return search result
-router.post("/", (req, res) => {
-  res.status(200).send(res.locals.watchHistory);
+router.get('/', footprintsMiddleware.getCityId, (req, res) => {
+  console.log('in city');
+  res.status(200).json({ res: res.locals });
 });
 
 module.exports = router;

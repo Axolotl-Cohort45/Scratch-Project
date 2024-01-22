@@ -1,16 +1,20 @@
-const { Router } = require("express");
-const express = require("express");
+const { Router } = require('express');
+const express = require('express');
+
+const footprintsMiddleware = require('../Middleware/footprintsMiddleware');
+const wishlistMiddleware = require('../Middleware/wishlistMiddleware');
 
 const router = express.Router();
 
 // Return all footprints
-router.post("/", (req, res) => {
-  res.status(200).send(res.locals.watchHistory);
+router.get('/', footprintsMiddleware.display, (req, res) => {
+  console.log('in display footprint ');
+  res.status(200).send(res.locals.footprintsList);
 });
 
 // Add footprints to database
-router.post("/add", (req, res) => {
-  res.status(200).send("Success!");
+router.post('/add', footprintsMiddleware.addFootprint, (req, res) => {
+  return res.status(200).json(res.locals.footprint);
 });
 
 module.exports = router;
