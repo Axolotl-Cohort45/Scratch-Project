@@ -1,6 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { Header } from "./Header";
+import { Brewery } from "./Brewery";
 import DisplayFootPrints from "./myfootprints";
 import SearchPage from "./search";
 import EditFootPrints from "./EditFootPrints";

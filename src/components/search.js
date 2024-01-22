@@ -43,21 +43,12 @@ const SearchPage = (props) => {
   brewerySearchResults.forEach((el, index) => {
     breweryBoxes.push(
       <Brewery
-        id={id}
         name={name}
-        brewery_type={brewery_type}
         address_1={address_1}
-        address_2={address_2}
-        address_3={address_3}
         city={city}
-        state_province={state_province}
-        postal_code={postal_code}
-        country={country}
-        longtitude={longtitude}
-        latitude={latitude}
+        state={state}
         phone={phone}
         website_url={website_url}
-        state={state}
       />
     );
   });
@@ -70,16 +61,6 @@ const SearchPage = (props) => {
           <label for="citysearchbox">City Name (required):</label>
           <input type="text" id="citySearchBox" name="searchCity" />
         </form>
-
-        {/* <form>
-          <label for="brewerysearchbox">Brewery Name (optional):</label>
-          <input type="text" id="brewerySearchBox" name="searchBrewery" />
-        </form>
-
-        <form>
-          <label for="cuisinesearchbox">Cuisine/Style (optional):</label>
-          <input type="text" id="cuisineSearchBox" name="searchCuisine" />
-        </form> */}
 
         <button className="searchButton" onClick={handleSearchButtonClick}>
           SEARCH
