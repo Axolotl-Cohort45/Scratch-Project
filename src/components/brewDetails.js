@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import recordCard from './recordCard';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 
 //Will require access to specific Brewery Result ID
 //Will Render out that specific Brewery info
@@ -13,22 +12,22 @@ import recordCard from './recordCard';
 const BrewDetails = (props) => {
   // const { brewery_name } = props
   const mockProps = {
-    userId: 'TestID123',
-    brewery_id: 'BreweryID123',
-    brewery_name: 'The Best Brewery',
-    brewery_type: 'Micro',
-    city: 'Woodbridge',
-    state_province: 'Virginia',
-    country: 'US',
-    address: 'Drunky Place Avenue 4040',
-    phone: '111-111-1111',
-    website_url: 'www.DrinkyPlace.com',
-    record_date: '04-12-2023',
+    userId: "TestID123",
+    brewery_id: "BreweryID123",
+    brewery_name: "The Best Brewery",
+    brewery_type: "Micro",
+    city: "Woodbridge",
+    state_province: "Virginia",
+    country: "US",
+    address: "Drunky Place Avenue 4040",
+    phone: "111-111-1111",
+    website_url: "www.DrinkyPlace.com",
+    record_date: "04-12-2023",
     user_rating: 8,
-    comment: 'Such a wonderful brewery place.',
+    comment: "Such a wonderful brewery place.",
   };
 
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
 
   const dispatch = useDispatch();
 
@@ -40,7 +39,7 @@ const BrewDetails = (props) => {
   const submitReview = () => {
     //Handle POST request to /footprints/add
     const reviewToSend = inputValue;
-    console.log('Review to Submit', reviewToSend);
+    console.log("Review to Submit", reviewToSend);
     // dispatch(reviewToSend);
   };
 
@@ -54,9 +53,9 @@ const BrewDetails = (props) => {
   const randomBrew = () => {
     //Create an array of images to pull from upon brew-details load.
     const randomImgArr = [
-      '../img/BrewBeer.png',
-      '../img/Brewery.png',
-      '../img/BrewPlace.png',
+      "../img/BrewBeer.png",
+      "../img/Brewery.png",
+      "../img/BrewPlace.png",
     ];
     const randomImg =
       randomImgArr[Math.floor(Math.random(randomImgArr.length))];
@@ -64,20 +63,20 @@ const BrewDetails = (props) => {
   };
 
   return (
-    <div className='brewdetails-page'>
-      <div className='brewinfo-container'>
+    <div className="brewdetails-page">
+      <div className="brewinfo-container">
         <h1>Details of the {mockProps.brewery_name}!</h1>
         <img
-          src={require('../img/BrewBeer.png').default}
-          alt='Brewery Picture Placeholder'
-          className='brew-images'
-          width='250'
-          height='250'
+          src={require("../img/BrewBeer.png").default}
+          alt="Brewery Picture Placeholder"
+          className="brew-images"
+          width="250"
+          height="250"
         />
         {/* Contains Restaurants Info */}
         <ul>
           <li>
-            Address: {mockProps.address} {mockProps.city},{' '}
+            Address: {mockProps.address} {mockProps.city},{" "}
             {mockProps.state_province}
           </li>
           <br></br>
@@ -86,23 +85,23 @@ const BrewDetails = (props) => {
           <li>Brew Type: {mockProps.brewery_type}</li>
         </ul>
       </div>
-      <div className='comments-container'>
+      <div className="comments-container">
         <h2>Leave a review below!</h2>
         {/* Create comment input field */}
         <input
-          type='text'
+          type="text"
           value={inputValue}
           onChange={handleInputChange}
-          placeholder='Leave us a review!'
+          placeholder="Leave us a review!"
         ></input>
         <br></br>
         {/* Create Add Review Button */}
-        <button type='submit' onClick={submitReview}>
+        <button type="submit" onClick={submitReview}>
           <br></br>
           Add Review!
         </button>
         {/* Create Wishlist Button */}
-        <button type='submit' onClick={saveWishlist}>
+        <button type="submit" onClick={saveWishlist}>
           <br></br>
           Save {mockProps.brewery_name} to Wishlist!
         </button>
