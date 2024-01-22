@@ -71,16 +71,6 @@ const SearchPage = (props) => {
           <input type="text" id="citySearchBox" name="searchCity" />
         </form>
 
-        {/* <form>
-          <label for="brewerysearchbox">Brewery Name (optional):</label>
-          <input type="text" id="brewerySearchBox" name="searchBrewery" />
-        </form>
-
-        <form>
-          <label for="cuisinesearchbox">Cuisine/Style (optional):</label>
-          <input type="text" id="cuisineSearchBox" name="searchCuisine" />
-        </form> */}
-
         <button className="searchButton" onClick={handleSearchButtonClick}>
           SEARCH
         </button>
