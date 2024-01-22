@@ -7,7 +7,7 @@ const initialState = {
 
 const Reducers = (state = initialState, action) => {
   switch (action.type) {
-    case types.SEARCH_RESTAUANTS:
+    case types.SEARCH_RESTAURANTS:
 
     case types.SAVE_TO_WISHLIST:
 
