@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import { Header } from "./Header";
 import DisplayFootPrints from "./myfootprints";
 import SearchPage from "./search";
+import EditFootPrints from "./EditFootPrints";
 import WishList from "./wishlist";
 import BrewDetailsPage from "./brewDetails";
 import "./App.css";
@@ -14,6 +15,7 @@ function App() {
       <main>
         <Switch>
           <Route exact path="/" component={DisplayFootPrints} />
+          <Route exact path="/edit" component={EditFootPrints} />
           <Route exact path="/wishlist" component={WishList} />
           <Route exact path="/search-new" component={SearchPage} />
           <Route exact path="/brew-details" component={BrewDetailsPage} />
