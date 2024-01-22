@@ -1,3 +1,5 @@
+const models = require('../models/footprintsModels');
+
 const footprintsMiddleware = {};
 
 footprintsMiddleware.getCityId = async (req, res, next) => {
@@ -6,15 +8,9 @@ footprintsMiddleware.getCityId = async (req, res, next) => {
   const answer = {
     cityName: 'Philadelphia',
     // brewName: '2nd Story Brewing Company'
-  };
+  }; //=>>>> CHANGE TO RES.BODY
 
   const citytestName = 'Philadelphia';
-
-  //   const cityUrl = `https://api.openbrewerydb.org/v1/breweries?by_city=${urlCityName}`;
-
-  //   const brewName = '2nd Story Brewing Company';
-
-  //   const brewUrl = `https://api.openbrewerydb.org/v1/breweries?by_name=${urlBrewName}`;
 
   let url;
 
@@ -56,44 +52,57 @@ footprintsMiddleware.getCityId = async (req, res, next) => {
   }
 };
 
-
 footprintsMiddleware.addFootprint = async (req, res, next) => {
-    try {
-        const {
-            userId,
-            restaurant_name,
-            address,
-            city,
-            phone,
-            record_date,
-			user_rating,
-			comment
-        } = req.body
+  try {
+    const {
+      userId,
+      restaurant_name,
+      address,
+      city,
+      phone,
+      record_date,
+      user_rating,
+      comment,
+    } = req.body;
 
-        const footprint = await models.Footprint.create({
-            userId,
-            restaurant_name,
-            address,
-            city,
-            phone,
-			record_date,
-			user_rating,
-			comment
-        })
+    const footprint = await models.Footprints.create({
+      userId,
+      restaurant_name,
+      address,
+      city,
+      phone,
+      record_date,
+      user_rating,
+      comment,
+    });
 
-        res.locals.footprint = footprint
-        return next()
-    }
-     
-    catch (err){
-        return next({
-            log: `Error in FootprintsMiddleware :${err}`,
-            message: {
-                err: `Error in FootprintsMiddleware :${err}`
-            },
-            status: 500
-        })
-    }
-}
+    res.locals.footprint = footprint;
+    return next();
+  } catch (err) {
+    return next({
+      log: `Error in FootprintsMiddleware :${err}`,
+      message: {
+        err: `Error in FootprintsMiddleware :${err}`,
+      },
+      status: 500,
+    });
+  }
+};
+
+footprintsMiddleware.display = async (req, res, next) => {
+  try {
+    const footprintsList = await models.Footprints.find({});
+    res.locals.footprintsList = footprintsList;
+    return next();
+  } catch (err) {
+    return next({
+      log: `Error in FootprintsMiddleware :${err}`,
+      message: {
+        err: `Error in FootprintsMiddleware :${err}`,
+      },
+      status: 500,
+    });
+  }
+};
 
 module.exports = footprintsMiddleware;
