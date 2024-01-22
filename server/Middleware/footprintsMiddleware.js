@@ -3,18 +3,20 @@ const models = require('../models/footprintsModels');
 const footprintsMiddleware = {};
 
 footprintsMiddleware.getCityId = async (req, res, next) => {
-  //   const { cityName } = req.body;
+    const { cityName, brewName } = req.body;
 
-  const answer = {
-    cityName: 'Philadelphia',
-    // brewName: '2nd Story Brewing Company'
-  }; //=>>>> CHANGE TO RES.BODY
+
+
+//   const answer = {
+//     cityName: 'Philadelphia',
+//     // brewName: '2nd Story Brewing Company'
+//   }; //=>>>> CHANGE TO RES.BODY
 
   const citytestName = 'Philadelphia';
 
   let url;
 
-  if (!answer.cityName) {
+  if (!res.body.cityName) {
     const urlBrewName = encodeURIComponent(answer.brewName);
     url = `https://api.openbrewerydb.org/v1/breweries?by_name=${urlBrewName}`;
   } else {
@@ -56,7 +58,7 @@ footprintsMiddleware.addFootprint = async (req, res, next) => {
   try {
     const {
       userId,
-      restaurant_name,
+	  brewery_name,
       address,
       city,
       phone,
@@ -67,7 +69,7 @@ footprintsMiddleware.addFootprint = async (req, res, next) => {
 
     const footprint = await models.Footprints.create({
       userId,
-      restaurant_name,
+	  brewery_name,
       address,
       city,
       phone,

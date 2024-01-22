@@ -16,7 +16,7 @@ const Schema = mongoose.Schema;
 
 const footprintsSchema = new Schema({
   userId: { type: String, default: 'user1' },
-  restaurant_name: { type: String, required: true },
+  brewery_name: { type: String, required: true },
 
   address: { type: String, required: true },
   city: { type: String, required: true },
